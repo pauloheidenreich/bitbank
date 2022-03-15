@@ -1,5 +1,7 @@
 package com.company.models;
 
+import com.company.funtions.InsufficientBalanceException;
+
 public abstract class Accounts {
 
     public String expClientAccount;
@@ -8,24 +10,22 @@ public abstract class Accounts {
     protected double accountBalance = 0;
     private String clientAccount;
 
-    public boolean withdrawFromAccount(double valueWithdraw){
-        if (this.accountBalance >= valueWithdraw){
+    public void withdrawFromAccount(double valueWithdraw) throws InsufficientBalanceException {
+        if (this.accountBalance < valueWithdraw) {
+            throw new InsufficientBalanceException("Insufficient balance !");
+        } else {
             this.accountBalance -= valueWithdraw;
             System.out.println("Withdraw accomplished with success.");
-            return true;
-        } else {
-            System.out.println("Withdraw denied.");
-            return false;
         }
     }
     public abstract void depositInAccount(double depositValue);
 
-    public void transferFromAccount(double value, Accounts destinyAccount){
-        if (this.withdrawFromAccount(value)){
+    public void transferFromAccount(double value, Accounts destinyAccount) throws InsufficientBalanceException {
+            this.withdrawFromAccount(value);
             destinyAccount.depositInAccount(value);
             System.out.println("Transfer accomplished with success.");
-        }
     }
+
     public int getAgencyNumber() {
         return agencyNumber;
     }

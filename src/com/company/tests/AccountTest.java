@@ -2,21 +2,22 @@ package com.company.tests;
 
 import com.company.funtions.AccountOperations;
 import com.company.funtions.ClientsOperations;
+import com.company.funtions.InsufficientBalanceException;
 
 public class AccountTest {
-    public static void main(String[] args){
-        ClientsOperations newClient = new ClientsOperations();
+    public static void main(String[] args) throws InsufficientBalanceException {
+        ClientsOperations newClient = new ClientsOperations(); //Creating a new client
         newClient.setClientName("Paulo Heidenreich Jr");
         newClient.setClientCpf("970.941.030-00");
         newClient.setClintOccupation("Dev Java");
 
-        AccountOperations newAccount = new AccountOperations();
+        AccountOperations newAccount = new AccountOperations(); //Creating a new account
         newAccount.setAgencyNumber(1234);
         newAccount.setAccountNumber(123456);
         newAccount.setAccountBalance(0);
         newAccount.expClientAccount = newClient.getClientName();
 
-        System.out.println("Name: " + newClient.getClientName());
+        System.out.println("Name: " + newClient.getClientName()); //Printing client and account created
         System.out.println("CPF: " + newClient.getClientCpf());
         System.out.println("Occupation: " + newClient.getClintOccupation());
         System.out.println("Account Number: " + newAccount.getAccountNumber());
