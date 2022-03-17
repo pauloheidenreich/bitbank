@@ -1,4 +1,4 @@
-package com.company.funtions;
+package com.company.functions;
 
 import com.company.models.Accounts;
 

@@ -1,6 +1,6 @@
 package com.company.models;
 
-import com.company.funtions.InsufficientBalanceException;
+import com.company.functions.InsufficientBalanceException;
 
 public abstract class Accounts {
 

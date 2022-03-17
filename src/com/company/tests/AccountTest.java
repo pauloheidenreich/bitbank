@@ -1,8 +1,8 @@
 package com.company.tests;
 
-import com.company.funtions.AccountOperations;
-import com.company.funtions.ClientsOperations;
-import com.company.funtions.InsufficientBalanceException;
+import com.company.functions.AccountOperations;
+import com.company.functions.ClientsOperations;
+import com.company.functions.InsufficientBalanceException;
 
 public class AccountTest {
     public static void main(String[] args) throws InsufficientBalanceException {
